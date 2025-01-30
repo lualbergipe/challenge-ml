@@ -11,16 +11,13 @@ const  SearchResults = () => {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-
     const location = useLocation();
     const navigate = useNavigate();
 
-   // Extraemos el  parametro "?search="
    const queryParams = new URLSearchParams(location.search);
    const search = queryParams.get('search') || '';
 
    useEffect(() => {
-    // Declaramos una función asíncrona dentro del effect
     const fetchData = async () => {
       try {
         setLoading(true);
@@ -37,16 +34,19 @@ const  SearchResults = () => {
       }
     };
   
-    // Sólo ejecutamos la función si hay un término de búsqueda
     if (search) {
       fetchData();
     }
   }, [search]);
 
-  console.log(items);
   if (loading) {
     return <LoadingIndicator/>;
   }
+
+  if (error) {
+    return <div className="error-message">{error}</div>;
+  } 
+
   const handleItemClick = (id) => {
     navigate(`/items/${id}`);
   };

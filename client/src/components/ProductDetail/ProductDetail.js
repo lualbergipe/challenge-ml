@@ -1,10 +1,17 @@
 import React from 'react';
 import { formatPrice } from '../../utils/priceFormatter';
+import { toast } from 'react-toastify';
 
 function ProductDetail({ item }) {
   const { title, price, description, picture, condition, sold_quantity } = item;
-  const formattedPrice = formatPrice(price)
+  const formattedPrice = formatPrice(price);
 
+  const handleBuyClick = () => {
+    toast.success(`${title} agregado al carrito`, {
+        autoClose: 2000 
+      });;
+    
+  };
   return (
     <div className="product__detail_container">
       <div className="product__detail_content">
@@ -13,7 +20,7 @@ function ProductDetail({ item }) {
         <span className="product__condition">{condition === 'new' ? 'Nuevo' : 'Usado'} - {sold_quantity} vendidos</span>
         <h1 className="product_title">{title}</h1>
         <h2 className="product__detail_price">{formattedPrice}</h2>
-        <button className="product__detail_btn">Comprar</button>
+        <button className="product__detail_btn" onClick={()=> handleBuyClick()}>Comprar</button>
       </div>
       </div>
       <div className="product__detail_description">

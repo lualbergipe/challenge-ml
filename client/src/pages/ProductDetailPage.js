@@ -10,7 +10,6 @@ function ProductDetailPage() {
   const { id } = useParams();
 
   const [item, setItem] = useState(null);
-  const [categories, setCategories] = useState([]); 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -20,8 +19,6 @@ function ProductDetailPage() {
         setLoading(true);
         const data = await fetchItemById(id);
         console.log(data, 'la data a evaluar');
-
-        setCategories(data.categories);
         setItem(data.item);
       } catch (err) {
         console.error(err);
@@ -48,7 +45,6 @@ function ProductDetailPage() {
   if (!item) {
     return null;
   }
-console.log(item, 'el item');
 
   return (
    <>

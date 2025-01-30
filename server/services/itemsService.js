@@ -1,6 +1,7 @@
 // server/services/itemsService.js
 const axios = require('axios');
 
+const ML_API_BASE_URL = process.env.API_BASE_URL || 'https://api.mercadolibre.com';
 // Helpers para parsear la información de la API de ML
 function parseItemData(apiItem) {
   
@@ -20,14 +21,13 @@ function parseItemData(apiItem) {
 }
 
 async function fetchItemsByQuery(query) {
-  const url = `https://api.mercadolibre.com/sites/MLA/search?q=${query}`;
+  const url = `${ML_API_BASE_URL}/sites/MLA/search?q=${query}`;
   const { data } = await axios.get(url);
 
   let categories = [];
   if (data.filters && data.filters.length > 0) {
     const categoryFilter = data.filters.find(f => f.id === 'category');
     if (categoryFilter && categoryFilter.values && categoryFilter.values.length > 0) {
-      // categoryFilter.values[0].path_from_root -> array de categorías
       categories = categoryFilter.values[0].path_from_root.map(cat => cat.name);
     }
   } else {
@@ -53,10 +53,10 @@ async function fetchItemsByQuery(query) {
 }
 
 async function fetchItemById(id) {
-  // 1) Información general del item
-  const itemUrl = `https://api.mercadolibre.com/items/${id}`;
-  // 2) Descripción
-  const descUrl = `https://api.mercadolibre.com/items/${id}/description`;
+  // 1) Traemos la información general del item
+  const itemUrl = `${ML_API_BASE_URL}/items/${id}`;
+  // 2) traemos la Descripción
+  const descUrl = `${ML_API_BASE_URL}/items/${id}/description`;
 
   const [itemRes, descRes] = await Promise.all([
     axios.get(itemUrl),
@@ -66,12 +66,8 @@ async function fetchItemById(id) {
   const itemData = itemRes.data;
   const descriptionData = descRes.data;
 
-  // Obtener la categoría del item
-  // Podrías hacer otra request a la categoría si quieres un breadcrumb completo, 
-  // pero con la respuesta del item tienes un "category_id" que luego 
-  // se podría usar para obtener más info si hicieras un get a /categories/:id.
-
-  const categoryRes = await axios.get(`https://api.mercadolibre.com/categories/${itemData.category_id}`);
+  //Aca consultamos el nombre de la categoría del prodcuto actual
+  const categoryRes = await axios.get(`${ML_API_BASE_URL}/categories/${itemData.category_id}`);
  
   // Parsear data
   const item = {

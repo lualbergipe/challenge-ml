@@ -4,7 +4,10 @@ import { useNavigate, Link } from 'react-router-dom';
 
 function NoResults() {
     const navigate = useNavigate();
-
+    
+    const handleHome = () => {
+        navigate(`/`);
+    };
   return (
     <div className="no__results_container">
         <img src={search} className="header__logo" alt="MercadoLibre" />
@@ -14,7 +17,7 @@ function NoResults() {
         <li>Revisa la ortografía de la palabra</li>
         <li>Utiliza palabras más genéricas o menos palabras.</li>
       </ul>
-      <Link to="/" className="return">
+      <Link to="/" className="return" onClick={() => handleHome}>
             Voler
           </Link>
       </div>
