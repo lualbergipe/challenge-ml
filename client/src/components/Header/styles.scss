@@ -2,6 +2,9 @@
 @mixin centerer {
     margin: auto;
     width: 968px;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
   
   .header {
@@ -9,6 +12,10 @@
   
     &__container {
       @include centerer;
+
+      @media (max-width: 768px) {
+        text-align: center;
+      }
     }
   }
   
@@ -28,6 +35,10 @@
       padding: 8px 12px;
       position: relative;
       color: $meli-gray;
+
+      @media (max-width: 768px) {
+        width: auto;
+      }
   
       &::placeholder {
         color: $meli-light-gray;

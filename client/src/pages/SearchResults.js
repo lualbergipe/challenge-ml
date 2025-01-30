@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { fetchItemsByQuery } from '../services/api';
 import NoResults from '../components/NoResults/NoResults';
 import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator';
+import ProductList from '../components/ProductList/ProductList';
 
 const  SearchResults = () => {
     const [items, setItems] = useState([]);
@@ -43,13 +44,16 @@ const  SearchResults = () => {
   if (loading) {
     return <LoadingIndicator/>;
   }
+  const handleItemClick = (id) => {
+    navigate(`/items/${id}`);
+  };
   return (
     <div>
     {
         items.length === 0 ? (
             <NoResults searchTerm={search}/>
         ): (
-    <h1>Si hay resultados</h1>
+            <ProductList items={items} onItemClick={handleItemClick} />
         )
     }
   </div>

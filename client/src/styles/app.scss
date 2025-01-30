@@ -3,7 +3,12 @@
 @import '../components/Header/styles';
 @import '../components/NoResults/styles';
 @import '../components/LoadingIndicator/styles';
+@import '../components/ProductList/styles';
+@import '../components/ProductItem/styles';
 
+html{
+    background-color: $meli-light-gray;
+  }
 .header {
     height: 50px;
     width: 100%;
@@ -13,6 +18,10 @@
     right: 0;
     z-index: 9999;
     background-color: $meli-yellow;
+    @media (max-width: 768px) {
+        display: flex;
+        height: 80px;
+    }
 
     + * {
         margin-top: $spacing-100;
