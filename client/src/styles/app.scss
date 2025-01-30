@@ -1,6 +1,8 @@
 @import 'base';
 @import 'variables';
 @import '../components/Header/styles';
+@import '../components/NoResults/styles';
+@import '../components/LoadingIndicator/styles';
 
 .header {
     height: 50px;
@@ -13,7 +15,7 @@
     background-color: $meli-yellow;
 
     + * {
-        margin-top: $spacing-16;
+        margin-top: $spacing-100;
     }
 
     &__logo {

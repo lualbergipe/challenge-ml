@@ -10,16 +10,18 @@ function App() {
   return (
     <>
     
-    <section className="meli-centered">
+    
     <Router>
     <Header/>
+    <section className="meli-centered">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/items" element={<SearchResults />} />
         <Route path="/items/:id" element={<ProductDetailPage />} />
       </Routes>
+      </section>
     </Router>
-    </section>
+    
     </>
   );
 }
