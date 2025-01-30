@@ -1,0 +1,40 @@
+# Logs y archivos temporales
+logs
+*.log
+npm-debug.log*
+
+# Dependencias y builds
+node_modules/
+dist/
+build/
+.cache/
+out/
+
+# Ignorar la carpeta del server y del client si se deseara algo extra
+# (generalmente no es necesario ignorar la carpeta completa, sino solo node_modules y build):
+server/node_modules/
+client/node_modules/
+server/dist/
+client/dist/
+server/build/
+client/build/
+
+# MacOS / Windows / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Variables de entorno
+.env
+.env.*.local
+
+# Archivos de bloqueo de npm/yarn
+package-lock.json
+yarn.lock
+
+# Cobertura de tests
+coverage/
+
+# TypeScript (opcional)
+*.tsbuildinfo
