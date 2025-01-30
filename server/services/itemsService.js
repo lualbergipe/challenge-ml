@@ -3,6 +3,7 @@ const axios = require('axios');
 
 // Helpers para parsear la información de la API de ML
 function parseItemData(apiItem) {
+  
   return {
     id: apiItem.id,
     title: apiItem.title,
@@ -14,6 +15,7 @@ function parseItemData(apiItem) {
     picture: apiItem.thumbnail,
     condition: apiItem.condition,
     free_shipping: apiItem.shipping && apiItem.shipping.free_shipping,
+    category_id: apiItem.category_id,
   };
 }
 
@@ -21,8 +23,6 @@ async function fetchItemsByQuery(query) {
   const url = `https://api.mercadolibre.com/sites/MLA/search?q=${query}`;
   const { data } = await axios.get(url);
 
-  // Obtener las categorías. 
-  // ML provee un array "filters" o "available_filters". Tomamos la categoría con más resultados
   let categories = [];
   if (data.filters && data.filters.length > 0) {
     const categoryFilter = data.filters.find(f => f.id === 'category');
@@ -71,6 +71,8 @@ async function fetchItemById(id) {
   // pero con la respuesta del item tienes un "category_id" que luego 
   // se podría usar para obtener más info si hicieras un get a /categories/:id.
 
+  const categoryRes = await axios.get(`https://api.mercadolibre.com/categories/${itemData.category_id}`);
+ 
   // Parsear data
   const item = {
     id: itemData.id,
@@ -84,12 +86,15 @@ async function fetchItemById(id) {
     condition: itemData.condition,
     free_shipping: itemData.shipping && itemData.shipping.free_shipping,
     sold_quantity: itemData.sold_quantity,
-    description: descriptionData.plain_text
+    description: descriptionData.plain_text,
+    category: categoryRes.data && categoryRes.data.name ? categoryRes.data.name : "" ,
   };
 
   return { item };
 }
+async function fetchCategoryById(id) {
 
+}
 module.exports = {
   fetchItemsByQuery,
   fetchItemById

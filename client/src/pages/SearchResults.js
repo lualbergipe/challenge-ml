@@ -4,6 +4,7 @@ import { fetchItemsByQuery } from '../services/api';
 import NoResults from '../components/NoResults/NoResults';
 import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator';
 import ProductList from '../components/ProductList/ProductList';
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 
 const  SearchResults = () => {
     const [items, setItems] = useState([]);
@@ -24,6 +25,8 @@ const  SearchResults = () => {
       try {
         setLoading(true);
         const data = await fetchItemsByQuery(search);
+        console.log(data, 'la data a evaluar');
+        
         setItems(data.items);
         setCategories(data.categories);
       } catch (err) {
@@ -49,6 +52,7 @@ const  SearchResults = () => {
   };
   return (
     <div>
+      <Breadcrumb categories={categories} />
     {
         items.length === 0 ? (
             <NoResults searchTerm={search}/>

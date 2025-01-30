@@ -5,6 +5,8 @@
 @import '../components/LoadingIndicator/styles';
 @import '../components/ProductList/styles';
 @import '../components/ProductItem/styles';
+@import '../components/ProductDetail/styles';
+@import '../components/Breadcrumb/styles';
 
 html{
     background-color: $meli-light-gray;
@@ -24,7 +26,7 @@ html{
     }
 
     + * {
-        margin-top: $spacing-100;
+        margin-top: $spacing-70;
     }
 
     &__logo {
@@ -40,13 +42,14 @@ html{
 }
 
 .breadcrumb {
-    position: relative;
-    float: left;
-    padding: $spacing-16 0;
+   
+    height: $spacing-40;
     color: $meli-gray;
 
-    &__anchor {
-        padding: 7px;
+    &__item {
+       font-size: 14px;
+       line-height: 20px;
+       font-weight: 400;
     }
 }
 
@@ -73,25 +76,10 @@ html{
     padding: 0 4px;
 }
 
-.product-title {
+.product_title {
     margin: $spacing-16 0 $spacing-32;
     font-size: 24px;
 
-}
-
-.product-resume__h2 {
-    font-size: 46px;
-    margin: $spacing-32 0;
-}
-
-.product-resume__button {
-    font-size: 20px;
-    border-radius: 4px;
-    background: $meli-blue;
-    padding: 20px;
-    border: 0;
-    color: $meli-white;
-    width: 100%;
 }
 
 .description__h3 {

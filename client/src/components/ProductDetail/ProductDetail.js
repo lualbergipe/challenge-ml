@@ -1,0 +1,27 @@
+import React from 'react';
+import { formatPrice } from '../../utils/priceFormatter';
+
+function ProductDetail({ item }) {
+  const { title, price, description, picture, condition, sold_quantity } = item;
+  const formattedPrice = formatPrice(price)
+
+  return (
+    <div className="product__detail_container">
+      <div className="product__detail_content">
+      <img className="product__detail_img" src={picture} alt={title} />
+      <div className="product__detail_info">
+        <span className="product__condition">{condition === 'new' ? 'Nuevo' : 'Usado'} - {sold_quantity} vendidos</span>
+        <h1 className="product_title">{title}</h1>
+        <h2 className="product__detail_price">{formattedPrice}</h2>
+        <button className="product__detail_btn">Comprar</button>
+      </div>
+      </div>
+      <div className="product__detail_description">
+        <h3>Descripción del producto</h3>
+        <p>{description}</p>
+      </div>
+    </div>
+  );
+}
+
+export default ProductDetail;

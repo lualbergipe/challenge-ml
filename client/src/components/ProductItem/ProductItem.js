@@ -4,7 +4,6 @@ import free from '../../assets/images/ic_shipping.png'
 function ProductItem({ item, onClick }) {
   const { picture, title, price, free_shipping, condition } = item;
   const formattedPrice = formatPrice(price);
-console.log(item, 'el item');
 
   return (
     <div className="product__item" onClick={onClick}>
