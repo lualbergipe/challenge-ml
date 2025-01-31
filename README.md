@@ -91,12 +91,12 @@ Este proyecto puede usar **variables de entorno** para centralizar ciertas confi
    git clone https://github.com/lualbergipe/challenge-ml.git
 
 2. **Instala** las dependencias desde la raíz:
-  ```bash
+    ```bash
   cd challenge
   npm install
 
 3. **Instala** las dependencias del frontend y del backend:
-  ```bash
+    ```bash
   cd client
   npm install
   cd ../server
@@ -104,11 +104,11 @@ Este proyecto puede usar **variables de entorno** para centralizar ciertas confi
   cd ..
 
 4. **Inicia** la aplicación (cliente + servidor en paralelo) desde la raiz:
-  ```bash
+    ```bash
   npm run dev
 
 - El servidor quedará disponible en:
-  ```bash
+    ```bash
   http://localhost:3001.
 - El frontend quedará disponible en:
       ```bash
