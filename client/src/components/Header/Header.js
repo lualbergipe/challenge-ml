@@ -20,9 +20,9 @@ const Header = () => {
   return (
     <header className='header'>
       <nav className="header__container">
-      <Link to="/" className="logo-link-container">
+        <Link to="/" className="logo-link-container">
             <img src={logo} className="header__logo" alt="MercadoLibre" />
-          </Link>
+        </Link>
         <form className="search" onSubmit={handleSubmit} role="search">
             <input
             type="text"
@@ -35,7 +35,7 @@ const Header = () => {
           />
           <button type="submit" className="search__button">
               <img src={searchIcon} alt="Boton buscar" />
-            </button>
+          </button>
         </form>
       </nav>
     </header>

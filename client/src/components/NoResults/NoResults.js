@@ -10,16 +10,16 @@ function NoResults() {
     };
   return (
     <div className="no__results_container">
-        <img src={search} className="header__logo" alt="MercadoLibre" />
+      <img src={search} className="header__logo" alt="MercadoLibre" />
       <div className='message__not'>
-      <h2>No hay publicaciones que coincidan con tu búsqueda.</h2>
-      <ul className='list__message'>
-        <li>Revisa la ortografía de la palabra</li>
-        <li>Utiliza palabras más genéricas o menos palabras.</li>
-      </ul>
-      <Link to="/" className="return" onClick={() => handleHome}>
+        <h2>No hay publicaciones que coincidan con tu búsqueda.</h2>
+        <ul className='list__message'>
+          <li>Revisa la ortografía de la palabra</li>
+          <li>Utiliza palabras más genéricas o menos palabras.</li>
+        </ul>
+        <Link to="/" className="return" onClick={() => handleHome}>
             Voler
-          </Link>
+        </Link>
       </div>
     </div>
   );

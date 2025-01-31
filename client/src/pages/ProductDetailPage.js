@@ -1,39 +1,19 @@
-// src/pages/ProductDetailPage.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator';
 import { fetchItemById } from '../services/api';
 import ProductDetail from '../components/ProductDetail/ProductDetail';
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
+import useFetch from '../hooks/useFetch';
 
 function ProductDetailPage() {
   const { id } = useParams();
 
-  const [item, setItem] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const fetchData = useCallback(() => fetchItemById(id), [id]);
+  const {data, loading, error} = useFetch(fetchData, [id])
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await fetchItemById(id);
-        console.log(data, 'la data a evaluar');
-        setItem(data.item);
-      } catch (err) {
-        console.error(err);
-        setError('Ocurrió un error al buscar el producto.');
-      } finally {
-        setLoading(false);
-      }
-    };
+  const item = data?.item;
 
-    if (id) {
-      fetchData();
-    }
-  }, [id]);
-
-  // Render condicional
   if (loading) {
     return <LoadingIndicator />;
   }

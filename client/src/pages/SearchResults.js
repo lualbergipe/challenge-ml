@@ -1,43 +1,24 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback} from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { fetchItemsByQuery } from '../services/api';
 import NoResults from '../components/NoResults/NoResults';
 import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator';
 import ProductList from '../components/ProductList/ProductList';
 import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
+import useFetch from '../hooks/useFetch';
 
 const  SearchResults = () => {
-    const [items, setItems] = useState([]);
-    const [categories, setCategories] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
     const location = useLocation();
     const navigate = useNavigate();
 
    const queryParams = new URLSearchParams(location.search);
    const search = queryParams.get('search') || '';
 
-   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const data = await fetchItemsByQuery(search);
-        console.log(data, 'la data a evaluar');
-        
-        setItems(data.items);
-        setCategories(data.categories);
-      } catch (err) {
-        console.error(err);
-        setError('Ocurrió un error al buscar los productos.');
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchData = useCallback(() => fetchItemsByQuery(search), [search]);
+  const { data, error, loading } = useFetch(fetchData, [search]);
   
-    if (search) {
-      fetchData();
-    }
-  }, [search]);
+  const items = data?.items || [];
+  const categories = data?.categories || [];
 
   if (loading) {
     return <LoadingIndicator/>;

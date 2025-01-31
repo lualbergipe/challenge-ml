@@ -11,8 +11,6 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <>
-    
-    
     <Router>
     <Header/>
     <section className="meli-centered">

@@ -1,4 +1,3 @@
-// src/components/Breadcrumb/Breadcrumb.jsx
 import React from 'react';
 
 function Breadcrumb({ categories = [] }) {

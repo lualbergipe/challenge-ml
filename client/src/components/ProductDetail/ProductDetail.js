@@ -15,13 +15,13 @@ function ProductDetail({ item }) {
   return (
     <div className="product__detail_container">
       <div className="product__detail_content">
-      <img className="product__detail_img" src={picture} alt={title} />
-      <div className="product__detail_info">
-        <span className="product__condition">{condition === 'new' ? 'Nuevo' : 'Usado'} - {sold_quantity} vendidos</span>
-        <h1 className="product_title">{title}</h1>
-        <h2 className="product__detail_price">{formattedPrice}</h2>
-        <button className="product__detail_btn" onClick={()=> handleBuyClick()}>Comprar</button>
-      </div>
+        <img className="product__detail_img" src={picture} alt={title} />
+        <div className="product__detail_info">
+          <span className="product__condition">{condition === 'new' ? 'Nuevo' : 'Usado'} - {sold_quantity} vendidos</span>
+          <h1 className="product_title">{title}</h1>
+          <h2 className="product__detail_price">{formattedPrice}</h2>
+          <button className="product__detail_btn" onClick={()=> handleBuyClick()}>Comprar</button>
+        </div>
       </div>
       <div className="product__detail_description">
         <h3>Descripción del producto</h3>
