@@ -92,8 +92,8 @@ Este proyecto puede usar **variables de entorno** para centralizar ciertas confi
 
 2. **Instala** las dependencias desde la raíz:
     ```bash
-  cd challenge
-  npm install
+    cd challenge
+    npm install
 
 3. **Instala** las dependencias del frontend y del backend:
     ```bash
