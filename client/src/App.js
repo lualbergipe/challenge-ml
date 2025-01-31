@@ -24,7 +24,6 @@ function App() {
       </section>
       <ToastContainer />
     </Router>
-    
     </>
   );
 }

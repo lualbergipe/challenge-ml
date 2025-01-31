@@ -34,14 +34,14 @@
       font-size: 18px;
       padding: 8px 12px;
       position: relative;
-      color: $meli-gray;
+      color: $ml-gray;
 
       @media (max-width: 768px) {
         width: auto;
       }
   
       &::placeholder {
-        color: $meli-light-gray;
+        color: $ml-light-gray;
         opacity: 1;
       }
     }
@@ -50,7 +50,7 @@
       border: 0px;
       padding: 9px 8px 7px 10px;
       position: relative;
-      color: $meli-gray;
+      color: $ml-gray;
       vertical-align: bottom;
     }
   }

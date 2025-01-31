@@ -20,8 +20,8 @@
     }
     &__detail_btn{
         width: 100%;
-        background-color: $meli-blue;
-        color: $meli-white;
+        background-color: $ml-blue;
+        color: $ml-white;
         border: none;
         cursor: pointer;
         transition: box-shadow .25s ease-out, background-color .2s ease-out;
@@ -31,7 +31,7 @@
         line-height: 48px;
     }
     &__detail_btn:hover{
-        background-color: $meli-blue-600;
+        background-color: $ml-blue-600;
         border-color: transparent;
         color: #fff;
         transition: background-color .2s ease-in;
