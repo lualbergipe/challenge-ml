@@ -74,8 +74,7 @@ Este proyecto puede usar **variables de entorno** para centralizar ciertas confi
   PORT=3001
   API_BASE_URL=https://api.mercadolibre.com
 
-  - **En el front** (dentro de `cliet/.env` o variables del sistema):
-
+- **En el front** (dentro de `cliet/.env` o variables del sistema):
   REACT_APP_API_URL=http://localhost:3001
 
 ## Instalación y ejecución
