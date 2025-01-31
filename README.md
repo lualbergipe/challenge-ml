@@ -92,24 +92,24 @@ Este proyecto puede usar **variables de entorno** para centralizar ciertas confi
 
 2. **Instala** las dependencias desde la raíz:
   ```bash
-cd challenge
-npm install
+  cd challenge
+  npm install
 
 3. **Instala** las dependencias del frontend y del backend:
   ```bash
-cd client
-npm install
-cd ../server
-npm install
-cd ..
+  cd client
+  npm install
+  cd ../server
+  npm install
+  cd ..
 
 4. **Inicia** la aplicación (cliente + servidor en paralelo) desde la raiz:
   ```bash
-npm run dev
+  npm run dev
 
 - El servidor quedará disponible en:
   ```bash
-   http://localhost:3001.
+  http://localhost:3001.
 - El frontend quedará disponible en:
       ```bash
      http://localhost:3000.
