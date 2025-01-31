@@ -112,5 +112,5 @@ Este proyecto puede usar **variables de entorno** para centralizar ciertas confi
     http://localhost:3001
 
 - El frontend quedará disponible en:
-      ```bash
-      http://localhost:3000
+    ```bash
+    http://localhost:3000
