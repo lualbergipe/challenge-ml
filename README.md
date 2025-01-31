@@ -49,8 +49,6 @@ Además, el proyecto pone énfasis en **usabilidad**, **SEO**, **performance** y
   - [Axios](https://axios-http.com/)
 - **Testing**:
   - [Jest](https://jestjs.io/)  
-  - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) (frontend)  
-  - [Supertest](https://www.npmjs.com/package/supertest) (backend)
 - **Herramientas de desarrollo**:
   - [Concurrently](https://www.npmjs.com/package/concurrently) (ejecutar cliente y servidor en paralelo)
 
