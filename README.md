@@ -64,6 +64,33 @@ La estructura sugerida es la siguiente (simplificada):
 3. **`server/`**: Servidor Express + Node, archivos de rutas, controladores, servicios y tests de backend.
 
 ---
+## Hooks Personalizados
+En este proyecto, hemos implementado un custom hook llamado useFetch para manejar la obtención de datos desde la API de MercadoLibre de manera eficiente y reutilizable. Este hook simplifica las solicitudes HTTP, gestiona automáticamente los estados de carga y error, y mejora la limpieza y mantenibilidad de los componentes.
+
+**useFetch**
+El hook useFetch permite realizar solicitudes HTTP de manera sencilla dentro de los componentes React, manejando los estados de carga, datos y errores de forma centralizada.
+
+**Parámetros**
+- fetchFunction (Function):
+Una función que realiza la solicitud HTTP y retorna una promesa que resuelve con los datos obtenidos. Esta función puede ser una llamada a cualquiera de las funciones definidas en api.js.
+
+-  dependencies (Array):
+Un array de dependencias que, cuando cambian, reejecutan la solicitud. Es similar a las dependencias que se pasan a useEffect.
+
+**Retorno**
+El hook retorna un objeto con las siguientes propiedades:
+
+- data (Object | null):
+Los datos obtenidos de la solicitud HTTP. Inicialmente es null hasta que se complete la solicitud.
+
+- loading (Boolean):
+Indica si la solicitud está en curso. Inicialmente es false.
+
+- error (String | null):
+Contiene el mensaje de error si la solicitud falla. Inicialmente es null.
+
+- refetch (Function):
+Una función que permite reintentar la solicitud manualmente. Útil en casos donde la solicitud falla y deseas permitir al usuario intentar nuevamente. En este caso no se utiliza esa opción 
 
 ## Variables de entorno
 
