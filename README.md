@@ -88,7 +88,7 @@ Este proyecto puede usar **variables de entorno** para centralizar ciertas confi
 
 1. **Clona** este repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/mercadolibre-challenge.git
+   git clone https://github.com/lualbergipe/challenge-ml.git
 
 2. **Instala** las dependencias desde la raíz:
 cd challenge
