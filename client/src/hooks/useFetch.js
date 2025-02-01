@@ -9,7 +9,7 @@ import { useState, useEffect, useCallback } from 'react';
  */
 export default function useFetch(fetchFunction, dependencies = []) {
   const [data, setData] = useState(null);       
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null);
 
   const executeFetch = useCallback(async () => {

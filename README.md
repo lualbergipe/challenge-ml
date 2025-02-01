@@ -141,3 +141,24 @@ Este proyecto puede usar **variables de entorno** para centralizar ciertas confi
 - El frontend quedará disponible en:
     ```bash
     http://localhost:3000
+
+    ## Testing
+
+Este proyecto utiliza **Jest** para la ejecución de pruebas unitarias. A continuación se detalla la prueba implementada para el servicio de items.
+
+### Prueba: `fetchItemsByQuery`
+
+La función `fetchItemsByQuery` realiza una petición a la API de MercadoLibre para obtener resultados de búsqueda, procesando la respuesta para extraer dos elementos clave:
+
+- **Categorías:** Se determina el breadcrumb (cadena de categorías) a partir de la información devuelta por la API.
+- **Items:** Se transforman y limitan los resultados a los primeros 4 items, utilizando una función auxiliar `parseItemData`.
+
+#### ¿Qué se prueba?
+
+Esta prueba unitaria se centra en verificar que:
+- La función retorne las **categorías** correctas, en este caso, el breadcrumb basado en la categoría identificada.
+- La función retorne el número correcto de **items** (en este ejemplo, 1 item) y que la información de cada item se mapea correctamente (por ejemplo, se verifica el `id`).
+
+#### Configuración de la prueba
+
+Se utiliza **Jest** para mockear la librería `axios` y simular la respuesta de la API. De esta forma, se evita depender de la API real y se puede testear la lógica de procesamiento de datos de forma aislada.
