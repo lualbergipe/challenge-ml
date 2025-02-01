@@ -142,7 +142,8 @@ Este proyecto puede usar **variables de entorno** para centralizar ciertas confi
     ```bash
     http://localhost:3000
 
-    ## Testing
+
+## Testing
 
 Este proyecto utiliza **Jest** para la ejecución de pruebas unitarias. A continuación se detalla la prueba implementada para el servicio de items.
 
