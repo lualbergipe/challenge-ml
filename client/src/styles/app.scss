@@ -25,7 +25,7 @@ html{
     }
 
     + * {
-        margin-top: $spacing-70;
+        margin-top: $spacing-50;
     }
 
     &__logo {
@@ -35,14 +35,9 @@ html{
 }
 
 
-
-.body-content {
-    padding: $spacing-48;
-}
-
 .breadcrumb {
    
-    height: $spacing-40;
+    padding: 16px;
     color: $ml-gray;
 
     &__item {
